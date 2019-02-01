@@ -1,2 +1,3 @@
-# suspense
-闪电分享 —— suspense 解决了什么
+# Migration to Suspense
+
+Materials I used in D2Conf at Hangzhou.
