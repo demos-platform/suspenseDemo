@@ -7,3 +7,4 @@ import App from './App';
 import './registerMouseClick';
 
 ReactDOM.render(<App />, document.getElementById('root'));
+// ReactDOM.createRoot(document.getElementById('root')).render(<App />)
