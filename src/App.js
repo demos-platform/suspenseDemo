@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Router } from "@reach/router";
 
 import TabContainer from './TabContainer';
 import NavLink from './NavLink';
 
 import InActivity from './inActivity';
-import HaveSignUp from './haveSignUp';
-import RecommendActivity from './recommendActivity';
-import MockSuspense from './suspense';
+
+import Spinner from './Spinner'
 
 import './App.css';
+
+const HaveSignUp = lazy(() => import('./haveSignUp'))
+const RecommendActivity = lazy(() => import('./recommendActivity'))
+const MockSuspense = lazy(() => import('./suspense'))
 
 function App() {
   return (
@@ -23,12 +26,14 @@ function App() {
           <NavLink to="suspense">MockSuspense</NavLink>
         </nav>
         <TabContainer>
-          <Router>
-            <InActivity path="/" />
-            <HaveSignUp path="signup" />
-            <RecommendActivity path="recommend/activity" />
-            <MockSuspense path="suspense" />
-          </Router>
+          <Suspense fallback={<Spinner />} maxDuration={500}>
+            <Router>
+              <InActivity path="/" />
+              <HaveSignUp path="signup" />
+              <RecommendActivity path="recommend/activity" />
+              <MockSuspense path="suspense" />
+            </Router>
+          </Suspense>
         </TabContainer>
       </div>
     </div>

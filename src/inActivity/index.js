@@ -1,42 +1,28 @@
-import React, { Component } from 'react';
-
-import Spinner from '../Spinner';
+import React from 'react';
+import { unstable_createResource } from 'react-cache'
 import fetchAPI from '../fetchAPI';
 
-class InActivity extends Component {
-  state = {
-    inActivity: null,
-    intro: null,
-  }
+const resource = unstable_createResource((name) => {
+  return fetchAPI(`/inActivity/${name}`)
+})
 
-  componentDidMount() {
-    fetchAPI('/inActivity/photo').then((inActivity) => {
-      this.setState({ inActivity });
-    });
-    fetchAPI('/inActivity/intro').then((intro) => {
-      this.setState({ intro });
-    })
-  }
-
-  render() {
-    const { inActivity, intro } = this.state;
-    return (
-      <>
-        <div className="inActivity-picture">
-          {inActivity ? (
-            <img src={inActivity} alt="活动中" />
-          ) : <Spinner />}
-        </div>
-        <div>
-          {intro ? (
-            intro.split('\n').map((para, index) => (
-              <p key={index}>{para}</p>
-            ))
-          ) : <Spinner />}
-        </div>
-      </>
-    );
-  }
+function InActivity() {
+  const inActivity = resource.read('photo')
+  const intro = resource.read('intro')
+  return (
+    <>
+      <div className="inActivity-picture">
+        <img src={inActivity} alt="活动中" />
+      </div>
+      <div>
+        {
+          intro.split('\n').map((para, index) => (
+            <p key={index}>{para}</p>
+          ))
+        }
+      </div>
+    </>
+  );
 }
 
 export default InActivity
