@@ -4,7 +4,7 @@ function isImage(url) {
   if (!url || typeof url === 'object') {
     return 1;
   }
-  return (url.endsWith('jpg') || url.endsWith('jpeg')) ? 1.5 : 1;
+  return (url.endsWith('png')) ? 1.5 : 1;
 }
 
 function getDataFromQuery(query) {
@@ -26,7 +26,7 @@ function getAdditionalDelay(url) {
   const difference = window.fastNetwork ? 100 : 600;
   const maxDelay = difference * 3;
 
-  if (url.includes('album')) {
+  if (url.includes('haveSignUp')) {
     return maxDelay - difference * parseInt(url.match(/[1-9]/)[0]);
   }
   return 0;

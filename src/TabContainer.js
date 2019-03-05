@@ -21,7 +21,7 @@ function TabContainer({ children }) {
           checked={isFast === 1}
           onChange={handleNetworkChange}
         />
-        <label htmlFor="isFast">Fast network&nbsp;&nbsp;</label>
+        <label htmlFor="isFast">快速&nbsp;&nbsp;</label>
         <input
           type="radio"
           name="network"
@@ -30,7 +30,7 @@ function TabContainer({ children }) {
           checked={isFast === 0}
           onChange={handleNetworkChange}
         />
-        <label htmlFor="isSlow">Slow network</label>
+        <label htmlFor="isSlow">慢速</label>
       </div>
     </>
   );

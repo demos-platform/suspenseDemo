@@ -17,8 +17,8 @@ class SongsPopularity extends React.Component {
 
   render() {
     return (
-      <div className="songs-popularity">
-        <h2 className="chart-title">Top Five Songs by Coldplay</h2>
+      <div className="hot-activity">
+        <h2 className="chart-title">热门活动前 5</h2>
         <canvas
           ref={this.canvasRef}
           id="myChart"

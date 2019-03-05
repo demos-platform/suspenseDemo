@@ -1,37 +1,36 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Router } from "@reach/router";
 
 import TabContainer from './TabContainer';
 import NavLink from './NavLink';
 
-import Profile from './Profile';
-// import Albums from './Albums';
-// import Voting from './Voting';
+import InActivity from './inActivity';
+import HaveSignUp from './haveSignUp';
+import RecommendActivity from './recommendActivity';
+import MockSuspense from './suspense';
 
-import Spinner from './Spinner'
 import './App.css';
-
-const Albums = lazy(() => import('./Albums'))
-const Voting = lazy(() => import('./Voting'))
 
 function App() {
   return (
     <div className="app">
-      <h1 className="coldpedia-title">COLDPEDIA</h1>
-      <nav>
-        <NavLink to="/">Profile</NavLink>
-        <NavLink to="albums">Albums</NavLink>
-        <NavLink to="voting">Voting</NavLink>
-      </nav>
-      <TabContainer>
-        <Suspense maxDuration={500} fallback={<Spinner />}>
+      <h1 className="duoduo-title"><span className="duoduo-title-name">多多营销后台</span></h1>
+      <div className="body">
+        <nav>
+          <NavLink to="/">活动中</NavLink>
+          <NavLink to="signup">已报名</NavLink>
+          <NavLink to="recommend/activity">推荐活动</NavLink>
+          <NavLink to="suspense">MockSuspense</NavLink>
+        </nav>
+        <TabContainer>
           <Router>
-            <Profile path="/" />
-            <Albums path="albums" />
-            <Voting path="voting" />
+            <InActivity path="/" />
+            <HaveSignUp path="signup" />
+            <RecommendActivity path="recommend/activity" />
+            <MockSuspense path="suspense" />
           </Router>
-        </Suspense>
-      </TabContainer>
+        </TabContainer>
+      </div>
     </div>
   );
 }

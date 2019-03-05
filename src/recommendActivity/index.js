@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import SongsPopularity from './SongsPopularity';
+import HotActivity from './HotActivity';
 
-class Voting extends Component {
+class RecommendActivity extends Component {
   state = {
     isChartVisible: false,
   };
@@ -21,12 +21,10 @@ class Voting extends Component {
             <h2 className="click-visible">
               <button
                 onClick={this.handleShowChart
-              }>Click here</button>
-              <br />
-              to see the vote result!
+              }>查看热门活动</button>
             </h2>
           ) : (
-            <SongsPopularity />
+            <HotActivity />
           )
         }
       </div>
@@ -34,4 +32,4 @@ class Voting extends Component {
   }
 }
 
-export default Voting;
+export default RecommendActivity;

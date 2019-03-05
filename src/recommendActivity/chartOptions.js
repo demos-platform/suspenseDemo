@@ -2,13 +2,13 @@ const options = {
   type: 'bar',
   title: {
     display: true,
-    text: 'Top Five Songs of Coldplay'
+    text: '热门活动 Top 5'
   },
   data: {
-    labels: ['Fix You', 'The Scientist', 'Paradise', 'Yellow', 'Viva la Vida'],
+    labels: ['9 块 9 特卖', '限时秒杀', '限时折扣', '大促主会场', '砍价'],
     datasets: [{
-      label: 'Percentage of votes',
-      data: [11, 8, 2, 7, 3],
+      label: '活动热门指数',
+      data: [2890, 2372, 2221, 1554, 1234],
       backgroundColor: '#051626',
     }]
   },
