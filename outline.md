@@ -1,37 +1,20 @@
 # 演讲备忘录
 
-* 此时调成慢速, 会发生什么呢? 可以看到获取的数据在不同时刻进行展现。我们想要同时刻进行展现的话引入下个话题 —— `Data Fetching`
-* 演示完 `data fetching` 后，刷新页面看到一直有个刷新的 `<Spin />` 组件, 为了更好的交互, 我们可以做什么  —— `Concurrent Mode`
+(放 Code Spliting 页时, 此时说 Code Spliting 的优势:)
 
-Let’s forget about the buzzword “Suspense” and solve some real world problems instead.
+* 仅仅加载当前页面所需要的 JavaScript。体验会更好。
 
-The problems are narrowed down to code splitting & async data fetching.
+1. 为什么 lazy 要和 Suspense 一起用呢？
 
-(Show the demo)
+此时结合博客进行解答。
 
-1. Code Splitting
-	* What is code splitting?
-		* To stay fast, only load JavaScript needed for the current page.
-		* This gives you the best chance at loading and getting interactive fast.
-		* Route-based & Component based
-		* Encourage people to lazy load as much as they can
-	* Demo React.lazy and `<Suspense>`
+* React-loadable
+* lazy 返回了什么, 动态加载的机制
 
-todo: 为什么 `lazy` 需放在 `Suspense` 内部? 去看 Suspense 源码
+2. (衔接话)此时调成慢速, 会发生什么呢? 可以看到获取的数据在不同时刻进行展现。我们想要同时刻进行展现的话引入下个话题 —— `Data Fetching`
 
-2. Async data fetching
-	* What’s the problems behind the spinners?
-		* as shown in slides
-	* Show how to use `resource.read` in demo
-	* How to understand the `<Suspense>`?
-		* Similar to an ErrorBoundary
-		* And is composable
+3. (衔接话)演示完 `data fetching` 后，刷新页面看到一直有个刷新的 `<Spin />` 组件, 为了更好的交互, 我们可以做什么  —— `Concurrent Mode`
 
 3. ConcurrentMode
 	* Another question: Is the spinner always necessary?
 	* Concurrent Rendering
-	* A git branching metaphor
-	* Now, do you get the point why it’s called “Suspense”? :)
-
-4. Road map
-Tell people that a big part of Suspense is not ready yet.
