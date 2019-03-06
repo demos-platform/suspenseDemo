@@ -49,11 +49,11 @@ class Suspense extends React.Component {
           promise: e
         },
         () => {
-          setTimeout(e.then(() => {
+          e.then(() => {
             this.setState({
               promise: null
             });
-          }), 1000)
+          })
         }
       );
     }

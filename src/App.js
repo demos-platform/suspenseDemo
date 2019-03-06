@@ -7,7 +7,7 @@ import NavLink from './NavLink';
 import InActivity from './inActivity';
 import HaveSignUp from './haveSignUp';
 import RecommendActivity from './recommendActivity';
-import MockSuspense from './suspense';
+// import MockSuspense from './suspense';
 
 import './App.css';
 
@@ -20,14 +20,14 @@ function App() {
           <NavLink to="/">活动中</NavLink>
           <NavLink to="signup">已报名</NavLink>
           <NavLink to="recommend/activity">推荐活动</NavLink>
-          <NavLink to="suspense">MockSuspense</NavLink>
+          {/* <NavLink to="suspense">MockSuspense</NavLink> */}
         </nav>
         <TabContainer>
           <Router>
             <InActivity path="/" />
             <HaveSignUp path="signup" />
             <RecommendActivity path="recommend/activity" />
-            <MockSuspense path="suspense" />
+            {/* <MockSuspense path="suspense" /> */}
           </Router>
         </TabContainer>
       </div>
